@@ -79,6 +79,19 @@ main {
   padding: 10px;
 }
 
+.day input:active,
+.month input:active,
+.year input:active {
+  border: 1px solid var(--color-primary-purple);
+}
+
+.day input:hover,
+.month input:hover,
+.year input:hover {
+  border: 1px solid var(--color-primary-purple);
+}
+
+
 .day label,
 .month label,
 .year label {
@@ -100,7 +113,7 @@ main {
   font-family: 'Poppins-Italic', sans-serif;
 }
 
-.error input {
+#input .error__border {
   border: 1px solid var(--color-primary-light-red);
 }
 
@@ -171,8 +184,8 @@ main {
     padding: 0;
   }
   main {
-    width: 80%; 
-    margin: 0, auto; 
+    width: 80%;
+    margin: 0, auto;
     height: auto;
   }
 
@@ -197,8 +210,8 @@ main {
     width: 100%;
   }
   .wrapper__graphics {
-    margin-top: 50px; 
-    margin-bottom: 50px; 
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 
   .image__wrapper {
@@ -211,8 +224,8 @@ main {
   }
 
   #overview {
-    width: 100%; 
-    padding: 0 20px; 
+    width: 100%;
+    padding: 0 20px;
   }
   #overview span {
     font-size: 2rem;
@@ -221,7 +234,7 @@ main {
     font-size: 2rem;
   }
 
-  .attribution{
+  .attribution {
     display: none;
   }
 }
