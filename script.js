@@ -112,26 +112,36 @@ function clearErrorsClass() {
 
 // Calculate user's age
 function calculateAge() {
-  const today = new Date();
   const userDay = parseInt(day.value, 10);
   const userMonth = parseInt(month.value, 10);
   const userYear = parseInt(year.value, 10);
 
   let years = today.getFullYear() - userYear;
   let months = today.getMonth() + 1 - userMonth;
+  console.log(months);
   let days = today.getDate() - userDay;
 
-  // If the birthdate is in the future
-  if (months < 0 || (months === 0 && days < 0)) {
-    years--;
-    months += 12; // Add 12 months to handle negative values
+  //  if birthdate is in the future
+  if (
+    userMonth > today.getMonth() + 1 ||
+    (userMonth === today.getMonth() + 1 && userDay > today.getDate())
+  ) {
+    years--; // Decrement years
+    months = 12 - userMonth + (today.getMonth() + 1); // Calculate remaining months
+    days = today.getDate() - userDay; // Calculate remaining days
   }
 
-  // If the birthdate hasn't occurred yet this month
+  // Adjust months and days if birthdate hasn't occurred yet this month
   if (days < 0) {
     months--; // Decrement months
     const lastDayOfMonth = new Date(userYear, userMonth, 0).getDate();
     days += lastDayOfMonth; // Add the number of days in the birth month
+  }
+
+  // Adjust months to be positive and handle year rollover
+  if (months < 0) {
+    months += 12;
+    years--;
   }
 
   // Update the spans with the calculated age components
